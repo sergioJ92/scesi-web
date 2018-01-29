@@ -5,34 +5,43 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Usuario;
 
 class ModuloUsuariosTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /** @test */
     public function prueba_vista_lista_de_todos_los_usuarios_con_usuarios()
     {
+    
+
     	$this->get('/usuarios')
     		->assertStatus(200)
             ->assertSee('Natsu')
-            ->assertSee('Erza')
-            ->assertSee('Jeral');	
+            ->assertSee('Lucy');	
     }
+    /*
     public function prueba_vista_lista_de_todos_los_usuarios_sin_usuarios(){
-        $this->get('usuarios?empty')
+        
+
+        $this->get('usuarios')
             ->assertStatus(200)
             ->assertSee('No existen usuarios registrados');
-    }
+    }*/
 
     /** @test */
     public function prueba_vista_identificado_por_id()
-    {
-    	$this->get('/usuarios/10')
+    {   
+        $usuario = Usuario::find(2);
+        /////// Buscamos al usuario y pasamos el id concatenando a la ruta para pasar el id esto en la prueba nada mas
+    	$this->get('/usuarios/'.$usuario)
     		->assertStatus(200)
-    		->assertSee('Vista editar usuario numero : 10');
+    		->assertSee('Natsu');
     }
     /** @test */
     public function vista_crear_nuevo_usuario(){
-        	$this->get('/usuarios/nuevo')
+        $this->get('/usuarios/nuevo')
     		->assertStatus(200)
     		->assertSee('Esta es la vista donde entrara el formulario de creacion de usuario');
     }

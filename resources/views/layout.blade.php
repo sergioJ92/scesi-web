@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!--Import Google Icon Font-->
-	<!--<link rel="stylesheet" type="text/css" href="{ asset('css/iconos.css') }">--><!-- lo que remplace de la pagina de materialize de iconos-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.min.css') }}" media="screen,projection">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.css') }}" media="screen,projection">
+	
+	<!--Estilos propios scesi-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/estilos_scesi.css') }}">
+	<!--Import Google Icon Font-->
+	<link href="{{'https://fonts.googleapis.com/icon?family=Material+Icons'}}" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title></title>
 </head>
 <body>
 
     <div class="col s12 m8 blue-grey lighten-5">
-		<nav class="nav-extended blue-grey lighten-1">
-			<div class="row">
-				<div class="nav-wrapper">
-		    		<div class="col m10 offset-m1">
-			    		<a href="#" class="brand-logo">
-			      			<img src="{{ asset('imagenes/logo-scesi.png')}}" alt="" class="responsive-img" id="icono">
-			      		</a>
-			      		<!--menu para pantalla normal-->
-				      	<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    	<nav class="nav-extended blue-grey lighten-1">
+		    <div class="row">
+			    <div class="nav-wrapper">
+			    	<div class="col m10 offset-m1">
+				      	<a href="{{url('/')}}" class="brand-logo">
+				      		<img src="{{ asset('imagenes/logo-scesi.png')}}" alt="" class="responsive-img" id="icono">
+				      	</a>
 				      	<ul id="nav-mobile" class="right hide-on-med-and-down">
 				        	<li><a href="#">Iniciar secion</a></li>
 				      	</ul>
 				      	<!--menu para [ara movil-->
-				      	<ul class="side-nav" id="mobile-demo">
-					       	<li><a href="#">Iniciar secion</a></li>
-					    </ul>
-				    </div>	
-		    	</div>
-		    </div>
-		    <div class="row">
-		    	<div class="col m11 offset-m1">	
-			        <div class="nav-content">
-				      	<ul class="tabs tabs-transparent">
-				      		<li><a href="#">Home</a></li>
-				        	<li><a href="#">Usuarios</a></li>
+			      	  	<ul class="side-nav" id="mobile-demo">
+				       		<li><a href="#">Iniciar secion</a></li>
 				      	</ul>
 				    </div>
 			    </div>
-		    </div>
-		</nav>	
-    	<div class="row">
+			</div>
+			<div class="row">
+				<div class="col m11 offset-m1">
+					<div >
+						<ul id="nav-mobile" class="left hide-on-med-and-down">
+				    		<li><a href="{{url('/')}}">Home</a></li>
+				    		<li><a href="{{url('usuarios/')}}">Usuarios</a></li>
+		      			</ul>	
+					</div>
+					
+		      	</div>
+			</div>
+		</nav>
+		<div class="row">
 			<div class="container">
-				<div class="col s12 m12">
+				<div class="col s12 m12 white">
 					<main role="main">
 						@yield('content')	
 					</main>
@@ -68,11 +71,8 @@
 	        </div>
 	    </footer>
 	</div>
-	
-		
-	<!--<script type="text/javascript" src="{ asset('js/jquery-3.2.1.min.js') }"></script>--> <!-- lo que remplace de la pagina de materialize del jquery-->
-    <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/materialize.js') }}"></script>
-
+	<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="{{'https://code.jquery.com/jquery-3.2.1.min.js'}}"></script>
+      <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>	
 </body>
 </html>
